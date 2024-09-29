@@ -5,7 +5,7 @@
 	#address-cells = <1>;
 
 	images {
-		kernel@1 {
+		kernel {
 			description = "default kernel";
 			data = /incbin/("./zImage");
 			type = "kernel";
@@ -19,7 +19,7 @@
 			};
 		};
 
-		ramdisk@1 {
+		ramdisk {
 			description = "rootfs";
 			data = /incbin/("./rootfs.cpio.gz");
 			type = "ramdisk";
@@ -30,7 +30,7 @@
 			};
 		};
 
-		fdt@1 {
+		fdt {
 			description = "device tree";
 			data = /incbin/("./allwinner/suniv-f1c100s-licheepi-nano.dtb");
 			type = "flat_dt";
@@ -46,13 +46,13 @@
 	};
 
 	configurations {
-		default = "config@1";
+		default = "licheepi-nano";
 
-		config@1 {
-			description = "default configuration";
-			kernel = "kernel@1";
-			ramdisk = "ramdisk@1";
-			fdt = "fdt@1";
+		licheepi-nano {
+			description = "licheepi nano default configuration";
+			kernel = "kernel";
+			ramdisk = "ramdisk";
+			fdt = "fdt";
 		};
 	};
 };
